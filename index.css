@@ -1,8 +1,8 @@
 :root {
-    --primary-color: #FFDE00;
-    --primary-light-color: #FFE769;
+    --primary-color: #5a68e9;
+    --primary-light-color: #e2cf6c;
     --secondary-color: #FFE4BA;
-    --secondary-light-color: #FFF6E8;
+    --secondary-light-color: #9dd3f7;
     --post-color: #62EEA8;
     --delete-color: #FF9F9F;
     --light-color: #FFFEFC;
@@ -21,20 +21,28 @@
     
     --element-padding: 0.8em;
     
-    --maximum-width: 320px;
+    --maximum-width: 400px;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     font-size: 16px;
+    height: 100%;
+    font-family: var(--primary-font);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 body {
     color: var(--dark-color);
-    background-color: var(--secondary-light-color);
+     background-color: var(--secondary-light-color); 
     font-family: var(--primary-font);
-}
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: rgb(0,51,102);
+    background: linear-gradient(159deg, rgba(0,51,102,1) 0%, rgba(15,82,186,1) 100%);}
+
 
 /* === Typography === */
 
@@ -50,6 +58,7 @@ h2 {
     font-family: var(--seconday-font);
     font-size: 2.5em;
     text-align: center;
+    color: var(--primary-light-color)
 }
 
 /* === Sections === */
@@ -192,7 +201,7 @@ button:hover {
 
 .secondary-btn {
     padding: 0.4em;
-    background-color: transparent;
+    background-color: rgb(124, 33, 124);
 }
 
 .secondary-btn:hover {
@@ -224,6 +233,14 @@ button:hover {
 classes to make the sign out buttons work 
 */
 
+#sign-out-btn {
+    max-width: fit-content;
+    align-self: flex-start;
+    
+}
+
+
+
 .icon-img-btn {
     background: none;
     border: none;
@@ -233,7 +250,7 @@ classes to make the sign out buttons work
 }
 
 .icon-img-btn:hover {
-    filter: invert(0.5);
+    filter: invert(0.2);
 }
 /* === IDs === */
 

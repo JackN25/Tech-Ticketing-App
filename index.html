@@ -2,7 +2,7 @@
 <html>
 
     <head>
-        <title>Hot-and-Cold</title>
+        <title>Brokelyn Tech Error Ticketing System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +13,7 @@
     <body>
         <section id="logged-out-view">
             <div class="container">
-                <h1 class="app-title">Hot-and-Cold</h1>
-                
-                <div class="provider-buttons">
-                    <button id="sign-in-with-google-btn" class="provider-btn">
-                        <img src="google.png" class="google-btn-logo">
-                        Sign in with Google
-                    </button>
-                </div>
+                <h1 class="app-title">Brokelyn Tech Error Ticketing System</h1>
                 
                 <div class="auth-fields-and-buttons">
                     <input id="email-input" type="email" placeholder="Email">
@@ -33,21 +26,30 @@
         </section>
         
         <section id="logged-in-view">
+            <!-- change -->
+            <button id="sign-out-btn" class="icon-btn">
+                <img src="logout.png" class="icon-img-btn">
+            </button>
             <div class="container">
                 <!-- log out button-->
-                <nav>
-                    <button id="sign-out-btn" class="icon-btn">
-                        <img src="logOut.jpg" class="icon-img-btn">
-                    </button>
-                </nav>
 
                 <div class="app-container">
                     <div class="user-section">
                         <img id="user-profile-picture">
                         <h2 id="user-greeting"></h2>
                     </div>
+                    <button id="create-tic" >Create Error Ticket</button>
+                    <div>
+                        <h1 id="ticket-status" > Ticket status </h2>
+                        <h2 id=""></h2>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section id="create-tic-page">
+            <button id="exit-ticket">Return</button>
+            
         </section>
         <script src="index.js" type="module"></script>
     </body>
