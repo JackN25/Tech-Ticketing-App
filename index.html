@@ -48,8 +48,122 @@
         </section>
 
         <section id="create-tic-page">
+            <div>
             <button id="exit-ticket">Return</button>
+            </div>
+
+            <div class="container" id="form-container">
             
+                <div name="ticket"> 
+                    <form class="form">
+                    <label for="main-category">Main Category:</label>
+                    <select name="main-category" id="main-category">
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                        <option value="smartboard">Smartboard</option>
+                        <option value="wires">Wires</option>
+                        <option value="keyboard/Mouse">Keyboard/Mouse</option>
+                        <option value="internet Connection">Internet Connection</option>
+                        <option value="operating System">Operating System</option>
+                        <option value="printer">Printer</option>
+                        <option value="copier">Copier</option>
+                        <option value="other">Other</option>
+                    </select>
+                <br><br>
+                </div>
+
+                <div> 
+                   <label for="affected">Affected:</label>
+                    <select name="affected" id="affected">
+                        <option value="whole-classroom">Whole Classroom</option>
+                        <option value="teacher-station">Teacher Station</option>
+                        <option value="teacher-laptop">Teacher Laptop</option>
+                        <option value="less-than-3-computers">Three or less than Student Computers</option>
+                        <option value="more-than-3-computers">More than three student computers</option>
+                        <option value="other-equipment">Other piece of equipment (smartboard, copier, etc...)</option>
+                    </select>
+                <br><br>
+                </div>
+                
+                <div>
+                    <label for="describe-issue">Describe the Issue</label><br>
+                    <input type="text" id="des-issue" name="des-issue" size="50"><br>
+                    <label for="what-tried">What have you tried:</label><br>
+                    <input type="text" id="lname" name="lname" size="50">
+                    <br><br>
+                </div>
+
+                <div>
+                    <p>Do you need admin privileges to fix?</p>
+                    <input type="radio" id="need-admin-no" name="need-admin" value="no">
+                    <label for="need-admin-no">No</label>
+                    <input type="radio" id="need-admin-yes" name="need-admin" value="yes">
+                    <label for="need-admin-yes">Yes</label>
+                    <input type="radio" id="need-admin-not-sure" name="need-admin" value="not-sure">
+                    <label for="need-admin-not-sure">Not Sure</label>
+                    <br><br>
+                </div>
+
+                <div>
+                    <label for="room-floor">Room Floor:</label>
+                    <select name="room-floor" id="room-floor">
+                        <option value="dasement">Basement</option>
+                        <option value="1st-floor">1st Floor</option>
+                        <option value="2nd-floor">2nd Floor</option>
+                        <option value="3rd-floor">3rd Floor</option>
+                        <option value="4th-floor">4th Floor</option>
+                        <option value="5th-floor">5th Floor</option>
+                        <option value="6th-floor">6th Floor</option>
+                        <option value="7th-floor">7th Floor</option>
+                        <option value="8th-floor">8th Floor</option>
+                    </select>
+                    <br><br>
+                </div>
+
+                <div>
+                    <label for="room-wing">Room Floor:</label>
+                    <select name="room-wing" id="room-wing">
+                        <option value="north">North</option>
+                        <option value="east">East</option>
+                        <option value="west">West</option>
+                        <option value="south">South</option>
+                    </select>
+                    <br><br>
+                </div>
+
+                <div>
+                    <label for="room-number">Room Number</label><br>
+                    <input type="text" id="room-number" name="room-number" size="50"><br>
+                    <br><br>
+                </div>
+
+                <div>
+                    <label for="computer-station-num">Computer Station Numbers Affected (N/A is none)</label><br>
+                    <input type="text" id="computer-station-num" name="computer-station-num" size="50"><br>
+                    <br><br>
+                </div>
+
+                <div>
+                    <label for="teacher-name">Teacher Name</label><br>
+                    <input type="text" id="teacher-name" name="teacher-name" size="20"><br>
+                    <br><br>
+                </div>
+
+                <div>
+                    <label for="date-noticed-issue">Date you first noticed the issue</label>
+                    <input type="date" id="date-noticed-issue" name="date-noticed-issue">
+                    <br><br>
+                </div>
+
+                <!-- 
+                    <div>
+                        <label for="supporting-file">Any supporting file:</label>
+                        <input type="file" id="supporting-file" name="supporting-file" multiple><br><br>
+                    </div>
+                -->
+                <input type="submit" value="Submit">
+            </form>
+            </div>
         </section>
         <script src="index.js" type="module"></script>
     </body>

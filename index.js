@@ -5,6 +5,9 @@ import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebase
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { signOut } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js"
+import { addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js"
+import { collection } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js"
 
 
 /* === Firebase Setup === */
@@ -21,7 +24,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+const db = getFirestore(app)
+const user = auth.currentUser
 console.log(auth)
+console.log(db)
 console.log(app.options.projectId)
 
 /* === UI === */
@@ -46,6 +52,7 @@ const createAccountButtonEl = document.getElementById("create-account-btn")
 const createTicket = document.getElementById("create-tic")
 
 const exitTicket = document.getElementById("exit-ticket")
+const formEl = document.querySelector(".form")
 /* == UI - Event Listeners == */
 
 signOutButtonEl.addEventListener("click", authSignOut)
@@ -54,6 +61,23 @@ signInButtonEl.addEventListener("click", authSignInWithEmail)
 createAccountButtonEl.addEventListener("click", authCreateAccountWithEmail)
 createTicket.addEventListener("click", showTicketPage)
 exitTicket.addEventListener("click", hideTicketPage)
+
+formEl.addEventListener("submit", event => {
+    event.preventDefault()
+
+    const formData = new FormData(formEl)
+    let category = formData.get("main-category")
+    let affected = formData.get("affected")
+    let describeIssue = formData.get("describe-issue")
+    let needAdmin = formData.get("need-admin")
+    let roomFloor = formData.get("room-floor")
+    let roomWing = formData.get("room-wing")
+    let roomNumber = formData.get("room-number")
+    let computerStationNum = formData.get("computer-station-num")
+    let teacherName = formData.get("teacher-name")
+    let dateNoticed = formData.get("date-noticed-issue")
+    addTicketToDB(category, affected, describeIssue, needAdmin, roomFloor, roomWing, roomNumber, computerStationNum, teacherName, dateNoticed)
+})
 /* === Main Code === */
 onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -66,6 +90,27 @@ onAuthStateChanged(auth, (user) => {
 
 function createTic() {
     console.log("test")
+}
+
+async function addTicketToDB(category, affected, describeIssue, needAdmin, roomFloor, roomWing, roomNumber, computerStationNum, teacherName, dateNoticed) {
+    try{
+        const document = await addDoc(collection(db, "tickets"), {
+            uid : user.id,
+            category : category,
+            affected : affected,
+            describeIssue : describeIssue,
+            needAdmin : needAdmin,
+            roomFloor : roomFloor,
+            roomWing : roomWing,
+            roomNumber : roomNumber,
+            computerStationNum : computerStationNum,
+            teacherName : teacherName,
+            dateNoticed : dateNoticed
+        })
+        console.log("Document written with ID: ", document.id)
+    } catch (e) {
+        console.error("Error adding document: ", e)
+    }
 }
 
 /* = Functions - Firebase - Authentication = */

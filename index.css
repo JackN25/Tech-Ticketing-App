@@ -36,7 +36,7 @@ html, body {
 
 body {
     color: var(--dark-color);
-     background-color: var(--secondary-light-color); 
+    background-color: var(--secondary-light-color); 
     font-family: var(--primary-font);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -260,4 +260,8 @@ classes to make the sign out buttons work
 
 #logged-in-view {
     display: none;
+}
+
+#form-container {
+    color:#62EEA8
 }
